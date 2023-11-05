@@ -1,6 +1,6 @@
 from PySide6.QtCore import QTimer, QTime, Slot, QObject
-from PySide6.QtGui import QFont, Qt, QPalette, QColor
-from PySide6.QtWidgets import QLCDNumber, QLabel, QWidget, QHBoxLayout, QTimeEdit, QSpinBox, QVBoxLayout, QPushButton
+from PySide6.QtGui import Qt, QPalette, QColor
+from PySide6.QtWidgets import QLabel, QWidget, QHBoxLayout, QSpinBox, QVBoxLayout, QPushButton
 
 from modules.presenter import PresenterView
 
@@ -63,6 +63,8 @@ class TimeRemaining(QWidget):
         self.set_timer(timer)
 
     def set_timer(self, timer):
+        if type(timer) == int:
+            timer = f'{timer}:00'
         self.lbl_time_remain.setText(timer)
         self.lbl_timer_set.setText(timer)
         self.presenter_view.view_timer.lbl_timer.setText(timer)
@@ -137,7 +139,6 @@ class TimeRemaining(QWidget):
         maximum = self.presenter_view.view_timer.timer_progress.maximum()
         # seconds = minutes * 60
         seconds = minutes * 60 + seconds
-        print(seconds)
         left = maximum - (maximum - seconds)
         self.presenter_view.view_timer.timer_progress.setValue(left)
 
