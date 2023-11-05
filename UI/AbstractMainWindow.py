@@ -1,17 +1,15 @@
 import os.path
-import sys
-
-from PySide6.QtCore import Qt, QSize
-from PySide6.QtWidgets import QWidget, QApplication
-
-from modules.presets import PresetsWidget
-from UI.MainWindow import Ui_MainWindow
-from modules.clock import Clock, TimeRemaining
 
 import qtawesome as qta
+from PySide6.QtCore import QSize
+from PySide6.QtWidgets import QApplication
 from qframelesswindow import FramelessWindow, StandardTitleBar
 
+from UI.MainWindow import Ui_MainWindow
+from modules.clock import Clock, TimeRemaining
+from modules.network_help import NetworkHelpDialog
 from modules.presenter import PresenterView
+from modules.presets import PresetsWidget
 
 
 class AbstractMainWindow(FramelessWindow):
@@ -26,6 +24,8 @@ class AbstractMainWindow(FramelessWindow):
 
         qss = open(os.path.join('UI', 'Dark.qss')).read()
         self.setStyleSheet(qss)
+
+        self.network_help_dialog = NetworkHelpDialog()
 
         self.presenter_view = PresenterView()
         self.presenter_view.showMaximized()
@@ -94,9 +94,13 @@ class AbstractMainWindow(FramelessWindow):
         self.ui.btn_move_presenter_view.clicked.connect(self.move_presenter_view)
         self.ui.btn_refresh_screeens.clicked.connect(self.get_screens)
         self.ui.btn_message_send.clicked.connect(self.send_message)
+        self.ui.btn_network_help.clicked.connect(self.show_network_help)
 
         # Presenter view update
         # self.ui.lbl_current_time.textChanged.connect(lambda: self.presenter_view.update_clock(self.ui.lbl_current_time.text()))
+
+    def show_network_help(self):
+        self.network_help_dialog.show()
 
     def send_message(self):
         if not self.ui.btn_message_send.isChecked():

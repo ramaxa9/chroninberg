@@ -55,6 +55,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addItem(self.verticalSpacer_6, 0, 1, 1, 1)
 
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_4, 1, 0, 1, 1)
+
         self.widget = QWidget(MainWindow)
         self.widget.setObjectName(u"widget")
         self.verticalLayout = QVBoxLayout(self.widget)
@@ -388,19 +392,62 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.groupBox_2)
 
-        self.StatusBar = QLabel(self.widget)
-        self.StatusBar.setObjectName(u"StatusBar")
-        self.StatusBar.setMinimumSize(QSize(0, 25))
-        self.StatusBar.setMaximumSize(QSize(16777215, 25))
+        self.widget_2 = QWidget(self.widget)
+        self.widget_2.setObjectName(u"widget_2")
+        self.widget_2.setMinimumSize(QSize(0, 30))
+        self.widget_2.setMaximumSize(QSize(16777215, 30))
+        self.horizontalLayout_2 = QHBoxLayout(self.widget_2)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(10, 0, 10, 0)
+        self.lbl_network_status_hint = QLabel(self.widget_2)
+        self.lbl_network_status_hint.setObjectName(u"lbl_network_status_hint")
+        self.lbl_network_status_hint.setMinimumSize(QSize(0, 25))
+        self.lbl_network_status_hint.setMaximumSize(QSize(16777215, 25))
 
-        self.verticalLayout.addWidget(self.StatusBar)
+        self.horizontalLayout_2.addWidget(self.lbl_network_status_hint)
+
+        self.lbl_network_status = QLabel(self.widget_2)
+        self.lbl_network_status.setObjectName(u"lbl_network_status")
+        font6 = QFont()
+        font6.setBold(True)
+        self.lbl_network_status.setFont(font6)
+
+        self.horizontalLayout_2.addWidget(self.lbl_network_status)
+
+        self.horizontalSpacer = QSpacerItem(20, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer)
+
+        self.lbl_ipaddr_hint = QLabel(self.widget_2)
+        self.lbl_ipaddr_hint.setObjectName(u"lbl_ipaddr_hint")
+        self.lbl_ipaddr_hint.setMinimumSize(QSize(0, 25))
+        self.lbl_ipaddr_hint.setMaximumSize(QSize(16777215, 25))
+
+        self.horizontalLayout_2.addWidget(self.lbl_ipaddr_hint)
+
+        self.lbl_ipaddr = QLabel(self.widget_2)
+        self.lbl_ipaddr.setObjectName(u"lbl_ipaddr")
+        self.lbl_ipaddr.setFont(font6)
+        self.lbl_ipaddr.setTextFormat(Qt.AutoText)
+        self.lbl_ipaddr.setScaledContents(False)
+
+        self.horizontalLayout_2.addWidget(self.lbl_ipaddr)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
+
+        self.btn_network_help = QPushButton(self.widget_2)
+        self.btn_network_help.setObjectName(u"btn_network_help")
+        self.btn_network_help.setMinimumSize(QSize(30, 30))
+
+        self.horizontalLayout_2.addWidget(self.btn_network_help)
+
+
+        self.verticalLayout.addWidget(self.widget_2)
 
 
         self.gridLayout.addWidget(self.widget, 1, 1, 1, 1)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_4, 1, 0, 1, 1)
 
 
         self.verticalLayout_7.addLayout(self.gridLayout)
@@ -444,6 +491,10 @@ class Ui_MainWindow(object):
         self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_message_send.setText("")
         self.lbl_message_hint.setText(QCoreApplication.translate("MainWindow", u"Multiple lines can be invisible with different screen resolutions", None))
-        self.StatusBar.setText(QCoreApplication.translate("MainWindow", u"StatusBar IP", None))
+        self.lbl_network_status_hint.setText(QCoreApplication.translate("MainWindow", u"Network: ", None))
+        self.lbl_network_status.setText("")
+        self.lbl_ipaddr_hint.setText(QCoreApplication.translate("MainWindow", u"Address: ", None))
+        self.lbl_ipaddr.setText("")
+        self.btn_network_help.setText(QCoreApplication.translate("MainWindow", u"Network commands", None))
     # retranslateUi
 
