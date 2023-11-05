@@ -1,5 +1,5 @@
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QPalette
+from PySide6.QtGui import QPalette, QPixmap
 from PySide6.QtWidgets import QStackedWidget, QWidget
 
 from UI.BlackView import Ui_BlackView

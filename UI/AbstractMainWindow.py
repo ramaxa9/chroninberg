@@ -2,6 +2,7 @@ import os.path
 
 import qtawesome as qta
 from PySide6.QtCore import QSize
+from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QApplication
 from qframelesswindow import FramelessWindow, StandardTitleBar
 
@@ -26,8 +27,10 @@ class AbstractMainWindow(FramelessWindow):
         self.setStyleSheet(qss)
 
         self.network_help_dialog = NetworkHelpDialog()
+        self.network_help_dialog.setWindowIcon(QPixmap(':/icons/logo.svg'))
 
         self.presenter_view = PresenterView()
+        self.presenter_view.setWindowIcon(QPixmap(':/icons/logo.svg'))
         self.presenter_view.showMaximized()
 
         self.grp_presets = PresetsWidget(self.ui.lbl_timer_set)
