@@ -29,7 +29,7 @@ class MainWindow(AbstractMainWindow):
         ip_addr = socket.gethostbyname(socket.gethostname())
 
         print(f"[NETWORK] Server started {ip_addr}")
-        self.ui.lbl_ipaddr.setText(f'http://{ip_addr}/[command]')
+        self.ui.lbl_ipaddr.setText(f'http://{ip_addr}:5000/[command]')
 
     def on_server_finished(self):
         print("[NETWORK] Server stopped")

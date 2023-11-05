@@ -1,4 +1,5 @@
 import asyncio
+import socket
 
 from PySide6.QtCore import QThread, Signal, QObject
 from aiohttp import web
@@ -50,7 +51,8 @@ class CommandHandler:
         return web.Response(text=feedback)
 
     def start_server(self):
-        web.run_app(self.app, port=5000)
+        ip_addr = socket.gethostbyname(socket.gethostname())
+        web.run_app(self.app, host=ip_addr, port=5000)
 
     def stop_server(self):
         self.loop.call_soon_threadsafe(self.loop.stop)

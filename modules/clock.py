@@ -114,6 +114,7 @@ class TimeRemaining(QWidget):
 
         self.set_timer(self.lbl_timer_set.text())
         self.lbl_time_eta.setText('ETA: N/A')
+        self.presenter_view.view_timer.lbl_eta.setText('ETA: N/A')
 
     def timer_update(self):
         # Update the timer
