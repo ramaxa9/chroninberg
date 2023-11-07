@@ -89,6 +89,8 @@ class TimeRemaining(QWidget):
         self.lbl_time_eta.setText(eta)
         self.presenter_view.view_timer.lbl_eta.setText(eta)
 
+        self.presenter_view.view_timer.lbl_message.setText('')
+
         self.timer.start(1000)
         self.paused = False
 
