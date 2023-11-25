@@ -82,8 +82,7 @@ class AbstractMainWindow(FramelessWindow):
         # self.ui.btn_decrease_5min.setMinimumSize(30, 30)
 
         self.get_screens()
-
-        self.move_presenter_view(1)
+        self.move_presenter_view(self.ui.select_screen.count() - 1)
 
         # SIGNALS
         self.ui.btn_start_timer.clicked.connect(self.time_remain.timer_start)
@@ -94,10 +93,11 @@ class AbstractMainWindow(FramelessWindow):
         self.ui.btn_change_view_timer.clicked.connect(lambda: self.presenter_view.setCurrentIndex(0))
         self.ui.btn_change_view_clock.clicked.connect(lambda: self.presenter_view.setCurrentIndex(1))
         self.ui.btn_change_view_black.clicked.connect(lambda: self.presenter_view.setCurrentIndex(2))
-        self.ui.btn_move_presenter_view.clicked.connect(self.move_presenter_view)
         self.ui.btn_refresh_screeens.clicked.connect(self.get_screens)
         self.ui.btn_message_send.clicked.connect(self.send_message)
         self.ui.btn_network_help.clicked.connect(self.show_network_help)
+
+        self.ui.select_screen.currentIndexChanged.connect(self.move_presenter_view)
 
         # Presenter view update
         # self.ui.lbl_current_time.textChanged.connect(lambda: self.presenter_view.update_clock(self.ui.lbl_current_time.text()))

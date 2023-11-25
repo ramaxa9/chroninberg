@@ -71,6 +71,7 @@ class TimeRemaining(QWidget):
 
         value = timer.split(':')
         seconds = int(value[0]) * 60
+        self.presenter_view.view_timer.timer_progress.setMinimum(0)
         self.presenter_view.view_timer.timer_progress.setMaximum(seconds)
         self.presenter_view.view_timer.timer_progress.setValue(seconds)
 
